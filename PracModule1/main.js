@@ -1,7 +1,7 @@
 // 1
 let ed = ['']
-ed = ed??2
-console.log(ed)
+ed = ed??[1,2]
+console.log(ed?.length)
 
 // 2 ข้อใดเป็นนิพจน์
 // null, undefined, Math.Pi
