@@ -24,7 +24,7 @@ const divParentNode = document.getElementById('summary')
 
 // 3. select reference node <p class="dev">2</p>
 const divChildrenNode = divParentNode.children
-// console.log(divChildrenNode)
+console.log(divChildrenNode)
 const referNode=divChildrenNode[1]
 // console.log(referNode)
 

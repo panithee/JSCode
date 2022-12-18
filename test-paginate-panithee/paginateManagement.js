@@ -12,42 +12,37 @@ function paginateManagement(items, rows) {
   const products = items
 
   const showItemsOfCurrentPage = (currentPageNumber) => {
-    const itemsInPage = getItemsOfCurrentPage(products, 
-      currentPageNumber, rowsPerPage)
-    const ulProduct = document.querySelector("#products")
-    itemsInPage.forEach((item) => {
+    const showItem = getItemsOfCurrentPage(products, currentPageNumber, rowsPerPage) 
+    const ulElement = document.getElementById('products')
+    for(let i of showItem){
       const liElement = document.createElement('li')
-      liElement.textContent = `ID:${item.id}, NAME:${item.name}`
-      ulProduct.appendChild(liElement)
-    })  
-  
+      liElement.textContent = `ID:${i.id}, NAME:${i.name}`
+      ulElement.appendChild(liElement)
+    }
+
   }
   const pageHandler = (event) => { 
-      const clearButtonStyle = document.querySelectorAll('button')
-      clearButtonStyle.forEach(button => button.style = "border: 1px solid #999")
-      const clearProductText = document.getElementById('products')
-      clearProductText.textContent = ""
-
-      const currentPage = event?.target.id ?? 1
-      showItemsOfCurrentPage(currentPage)
-
-      const targetPageButton = document.getElementById(currentPage)
-      targetPageButton.style = "background-color: LightSteelBlue"
-
-  
+    const allButton = document.querySelectorAll('button')
+    allButton.forEach(page => page.style = "border: 1px solid #999")
+    const clearItem = document.getElementById('products')
+    clearItem.textContent = ""
+    const currentPage = event?.target.id ?? 1
+    showItemsOfCurrentPage(currentPage)
+    const buttonOfCurrentPage = document.getElementById(currentPage)
+    buttonOfCurrentPage.style = "background-color: LightSteelBlue"
   }
 
   const showPageNumbers = () => {
-    const totalPage = getTotalPages(products, rowsPerPage)
-    const divPagination = document.querySelector(".pagination")
-    for(let i = 1; i<=totalPage; i++) {
+    const totalPages = getTotalPages(products, rowsPerPage)
+    const divClass = document.querySelector('.pagination')
+    for(let i=1; i<=totalPages ;i++){
       const button = document.createElement('button')
       button.setAttribute('id', i)
       button.textContent = i
-      divPagination.appendChild(button)
+      divClass.appendChild(button)
       button.addEventListener('click', pageHandler)
     }
-  }
+  } 
 
   return {
     showPageNumbers,
