@@ -1,9 +1,9 @@
-const { template } = require('@babel/core')
-// import { getItemsOfCurrentPage, getTotalPages } from './lib/paginate.js'
-// import { products } from './data/products.js'
+// const { template } = require('@babel/core')
+import { getItemsOfCurrentPage, getTotalPages } from './lib/paginate.js'
+import { products } from './data/products.js'
 
-const { getItemsOfCurrentPage, getTotalPages } = require('./lib/paginate.js')
-const products = require('./data/products.js')
+// const { getItemsOfCurrentPage, getTotalPages } = require('./lib/paginate.js')
+// const products = require('./data/products.js')
 
 //your student id, firstname, and lastname here
 // 64130500047, Panithee Virojwongchai
@@ -49,8 +49,8 @@ function paginateManagement(items, rows) {
     pageHandler
   }
 }
-module.exports = paginateManagement
-// export { paginateManagement }
-// const { showPageNumbers, pageHandler } = paginateManagement(products, 10)
-// showPageNumbers()
-// pageHandler()
+// module.exports = paginateManagement
+export { paginateManagement }
+const { showPageNumbers, pageHandler } = paginateManagement(products, 10)
+showPageNumbers()
+pageHandler()
