@@ -37,7 +37,9 @@ function paginateManagement(items, rows) {
     // const button = selectButtonParent.childNodes
     const button = document.querySelectorAll('button')
     button.forEach(page => page.style = 'border: 1px solid #999')
-
+    // const button = document.getElementsByTagName('button')
+    // Array.from(button).forEach(page => page.style = 'border: 1px solid #999')
+    
     const clearText = document.querySelector('#products')
     clearText.textContent = ""
     
