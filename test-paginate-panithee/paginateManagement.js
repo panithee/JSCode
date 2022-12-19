@@ -14,12 +14,23 @@ function paginateManagement(items, rows) {
   const showItemsOfCurrentPage = (currentPageNumber) => {
     const showItem = getItemsOfCurrentPage(products, currentPageNumber, rowsPerPage)
     const ulParent = document.getElementById('products')
-    showItem.forEach(item => {
+    // showItem.forEach(item => {
+    //   const liElement = document.createElement('li')
+    //   liElement.textContent = `ID:${item.id}, NAME:${item.name}`
+    //   ulParent.appendChild(liElement)
+    // })  
+
+    // for(let i = 0; i<showItem.length; i++) {
+    //   const liElement = document.createElement('li')
+    //   liElement.textContent = `ID:${showItem[i].id}, NAME:${showItem[i].name}`
+    //   ulParent.appendChild(liElement)
+    // } 
+
+    for(const item of showItem) {
       const liElement = document.createElement('li')
       liElement.textContent = `ID:${item.id}, NAME:${item.name}`
       ulParent.appendChild(liElement)
-    })   
-
+    }
   }
   const pageHandler = (event) => { 
     // const selectButtonParent = document.querySelector('.pagination')
